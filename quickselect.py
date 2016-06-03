@@ -1,13 +1,15 @@
 #quickselect
 
 import sys
-import rand
+import random
 
 def quickselect(A, k):
-		r = rand.range(1,len(A)) #   let r be chosen uniformly at random in the range 1 to length(A)
+		if len(A) < 2:
+				return A[0]
+		r = random.randint(1,len(A)-1) #   let r be chosen uniformly at random in the range 1 to length(A)
 		pivot = A[r]  #   let pivot = A[r]
-		left = [for x in A if x < A[r]] #array of smallest elements
-		right = [for x in A if x > A[r]] #array of largest elements
+		left = [x for x in A if x < A[r] ] #array of smallest elements
+		right = [x for x in A if x > A[r] ] #array of largest elements
 		if(k <= len(left)):
 				return quickselect(left, k)
 		if(k > (len(A) - len(right))):
@@ -23,8 +25,8 @@ def main():
   with open(sys.argv[1]) as f:
     for line in f:
       nums.append(int(line))
-  quickselect(nums, k)
-
+  kth = quickselect(nums, k)
+  print("kth element is %d" % (kth))
 
 
 
