@@ -1,13 +1,18 @@
 #deterministic select
 
+
+#https://www.ics.uci.edu/~eppstein/161/960130.html
+
+
+
 import sys
 
 
 def deterministic_select(L, k):
-    pass
     if(L < 10):
-        #sort L
+        L.sort() #uses quicksort or bubblesort iirc
         return L[k]
+    x = []
     for( i in (len(L)/5)):
         x[i] = select(L[i], 3)
 
