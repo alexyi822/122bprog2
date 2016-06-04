@@ -8,7 +8,7 @@ numInt=$3
 
 program=$algorithm.py
 
-echo "Sample Number","Language","Time (seconds)","Number of Compares" >> $algorithm.csv
+echo "Sample Number","Language","Time (seconds)","Number of Compares" >> $algorithm-stats-$numInt.csv
 
 k=$(($RANDOM % $numInt))
 
