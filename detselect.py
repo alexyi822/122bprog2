@@ -18,7 +18,7 @@ def deterministic_select(L, k):
 
     subs = [L[i:i+5] for i in xrange(0, len(L), 5)] # partitions in n/5 groups of length at most 5
     x = []
-    for y in (len(L)/5):
+    for y in range(0,(len(L)/5)):
         x[y] = deterministic_select(subs[y], 3)
 
     M = deterministic_select(x, (len(L)/10))
@@ -40,7 +40,8 @@ def main():
   with open(sys.argv[1]) as f:
     for line in f:
       nums.append(int(line))
-
+  x = deterministic_select(nums, k)
+  print(x)
 
 
 
