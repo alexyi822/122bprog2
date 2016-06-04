@@ -5,6 +5,7 @@ import random
 comp = 0 # number of comparisons
 
 def quickselect(A, k):
+		global comp
 		if len(A) < 2:
 				return A[0]
 		r = random.randint(1,len(A)-1) #   let r be chosen uniformly at random in the range 1 to length(A)
