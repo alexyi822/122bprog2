@@ -26,7 +26,7 @@ do
   RUNTIME=$(grep Tim stats_output-${i} | grep -o -E '[0-9]+.[0-9]+')
   # RUNTIME=$( { time python $program input-${i} $k ; } 2>&1 )
 
-  echo -e "\n${i}","Python","$RUNTIME","$NUMCOMP" >> $algorithm.csv
+  echo -e "\n${i}","Python","$RUNTIME","$NUMCOMP" >> $algorithm-stats-$numInt.csv
 
 done
 
