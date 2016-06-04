@@ -11,8 +11,7 @@ numInts=1000
 mkdir sanity_check_test_cases
 
 #generate 100 test files with 1000 integers in range [1, 10^6]
-# for i in {1..100}
-for i in {1..2}
+for i in {1..100}
 do
   touch sanity_check_test_cases/test-${i}
   for j in {1..1000}
