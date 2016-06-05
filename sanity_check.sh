@@ -3,6 +3,9 @@
 #should generate a random k value
 #findkthlargest.py: findkthlargest.py input-file k-value
 
+#NOTE: this script doesn't work anymore b/c the outputs are different now
+#need to edit algorithm programs' output to run this script
+
 RANGE=1000000
 numInts=1000
 
@@ -23,10 +26,10 @@ do
   k=$(($RANDOM % $numInts))
   python findkthlargest.py sanity_check_test_cases/test-${i} $k > findkthlargest-${i}
   python quickselect.py sanity_check_test_cases/test-${i} $k > quickselect-${i}
-  # python detselect.py sanity_check_test_cases/test-${i} $k > detselect-${i}
+  python detselect.py sanity_check_test_cases/test-${i} $k > detselect-${i}
 
   # #use diff3 for comparing 3 files
-  diff_output=$(diff findkthlargest-${i} quickselect-${i})
+  diff_output=$(diff3 findkthlargest-${i} quickselect-${i}  detselect-${i})
   if [ "$diff_output" ]; then
     echo "failed test number $i"
     echo $diff_output
@@ -39,4 +42,4 @@ rmdir sanity_check_test_cases
 
 rm findkthlargest-*
 rm quickselect-*
-# rm detselect-*
+rm detselect-*
