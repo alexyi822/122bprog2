@@ -4,7 +4,9 @@
 #https://www.ics.uci.edu/~eppstein/161/960130.html
 #https://www.reddit.com/r/learnprogramming/comments/3ld88o/pythonimplementing_median_of_medians_algorithm/
 #https://www.youtube.com/results?search_query=determinstic+sort&page=&utm_source=opensearch
+import time
 import sys
+coutn = 0 #number of comparisons
 
 
 
@@ -24,22 +26,32 @@ def deterministic_select(L, k):
     left = [x for x in L if x < M]
     right = [x for x in L if x > M]
     center = [x for x in L if x == M]
+    comp += len(L)
+    comp += 3 #for the if statements
 
     if(k <= len(left)):
+            comp -= 2 #didn't compare the other if and else
             return deterministic_select(left,k)
     if(k > len(left)+len(center)):
+            comp -= 1 #didnt compare the last else
             return deterministic_select(right, k-len(left)-len(center))
     else:
             return M
 
 def main():
+  start = time.clock()
   k = int(sys.argv[2])
   nums = []
   with open(sys.argv[1]) as f:
     for line in f:
       nums.append(int(line))
   x = deterministic_select(nums, k)
-  print(x)
+  end = time.clock()
+
+  # print(x)
+  print("kth element:\t %d" % (x))
+  print("Comparisons:\t %d" % (comp))
+  print("Time:\t %f" % (end-start))
 
 
 
