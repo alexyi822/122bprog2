@@ -3,9 +3,9 @@
 
 #https://www.ics.uci.edu/~eppstein/161/960130.html
 #https://www.reddit.com/r/learnprogramming/comments/3ld88o/pythonimplementing_median_of_medians_algorithm/
-
-
+#https://www.youtube.com/results?search_query=determinstic+sort&page=&utm_source=opensearch
 import sys
+
 
 
 def deterministic_select(L, k):
